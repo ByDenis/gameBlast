@@ -1,0 +1,10 @@
+@import url("./base.css");
+
+#game {
+    //border: 10px solid #77bacb;
+    border-radius: 27px;
+    outline: 8px solid #77bacb;
+    padding: 8px;
+    //box-shadow: 1px 0px 5px 10px rgba(152,239,255,0.83) inset;
+    box-shadow: 1px -3px 11px 3px rgba(222,225,255,0.69) inset;
+}
