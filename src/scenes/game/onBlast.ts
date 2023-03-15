@@ -1,7 +1,7 @@
 import { BlockSprite } from "../../models/BlockSprite"
 import BlockSpriteBlast from "../../models/BlockSpriteBlast"
-import findBlastBlocks from '../../state/StatefindBlastBlocks'
-import BlockSpriteMoveY from '../../models/BlockSpriteMoveY'
+import findBlastBlocks from '../../state/StateFindBlastBlocks'
+import BlockSpriteMove from '../../models/BlockSpriteMove'
 import BlockSpriteNoBlast from '../../models/BlockSpriteNoBlast'
 import moveDownBlocks from '../../state/StateMoveDownBlocks'
 import { GameScene } from "../GameScene"
@@ -27,9 +27,11 @@ export default (scene:GameScene, sprite:BlockSprite, lengthToWin:number, addBomb
             
             let allPromiseMove:any = [];
             if (blockNeedsMove) for (let s of blockNeedsMove) {
-                allPromiseMove.push( BlockSpriteMoveY(s) )
+                allPromiseMove.push( BlockSpriteMove(s) )
             }
             Promise.all(allPromiseMove).then(resolve)
+
+            scene.state.stepAdd();
         });
         } else {
           BlockSpriteNoBlast(sprite).then(resolve)

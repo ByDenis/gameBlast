@@ -1,7 +1,7 @@
 import { GameScene } from "../GameScene"
 import { BlockSprite } from "../../models/BlockSprite"
 import BlockSpriteBlast from "../../models/BlockSpriteBlast"
-import BlockSpriteMoveY from '../../models/BlockSpriteMoveY'
+import BlockSpriteMoveY from '../../models/BlockSpriteMove'
 import findBombBlocks from "../../state/findBombBlocks"
 import moveDownBlocks from '../../state/StateMoveDownBlocks'
 

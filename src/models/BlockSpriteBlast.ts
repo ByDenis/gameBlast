@@ -7,7 +7,10 @@ export default (obj:BlockSprite) => {
             ease: 'easeInElastic',
             scale: 0,
             duration: 400,
-            onComplete:resolve
+            onComplete:() => {
+                obj.destroy(true)
+                resolve(true)
+            }
         })
     }) 
 }

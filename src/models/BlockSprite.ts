@@ -41,7 +41,11 @@ export class BlockSprite extends GameObjects.Sprite {
     public getStatePositio = ():StatePositionBlock => {
         return this.inState
     }
-    public setStatePositionY(r:number): void {
+    public setStatePositionY = (r:number): void => {
+        this.inState.r = r
+    }
+    public setStatePosition = (c:number, r:number): void => {
+        this.inState.c = c
         this.inState.r = r
     }
 

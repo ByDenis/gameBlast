@@ -4,14 +4,13 @@ import { GameScene } from './scenes/GameScene'
 import gameConfig from './gameConfig'
 import CalcScaleBlock from './utils/calcScaleBlock'
 import State from './state/State'
+import ui from './ui'
 
 try {
   const state = State.getInstance()
   state.scale = CalcScaleBlock(gameConfig.screenWidth, gameConfig.tileWidth, gameConfig.colomns)
-  state.bombCount = gameConfig.bombStartValue;
 
-  state.steps = gameConfig.stepsToWin;
-
+  ui();
   const screenHeight = gameConfig.tileHeight * state.scale * gameConfig.rows
 
   const config: Types.Core.GameConfig = {
@@ -31,8 +30,3 @@ try {
 } catch (e) {
   console.error(e)
 }
-
-const setBomb = ():void => {
-  console.log('setBomb');
-}
-export { setBomb };

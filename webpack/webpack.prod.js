@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'production',
   devtool: 'source-map',
   output: {
-    publicPath: '/',
+    publicPath: './',
     path: path.resolve(__dirname, '../build')
   },
   optimization: {
@@ -16,7 +16,6 @@ module.exports = merge(common, {
       new TerserPlugin({
         parallel: true,
         terserOptions: {
-          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
         },
       }),
     ]
