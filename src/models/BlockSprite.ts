@@ -1,9 +1,10 @@
 import { GameObjects, Scene } from 'phaser'
+import { BlockId } from '../gameConfig'
 import BlockSpriteGetPosition from './BlockSpriteGetPosition'
+
 
 export type BlockPositon = { x: number, y: number }
 export type BlockSize = { width: number, height: number }
-export type BlockId = '1' | '2' | '3' | '4' | '5'
 export type BlockProps = { id: BlockId } & {scale?: number}
 export type StatePositionBlock = {c: number, r:number}
 
@@ -18,7 +19,7 @@ export class BlockSprite extends GameObjects.Sprite {
     constructor(scene: Scene, props: BlockProps, inState: StatePositionBlock) {
         const {id, scale=1 } = props
         
-        const blockTexture = scene.textures.get('tile1').getSourceImage()
+        const blockTexture = scene.textures.get('tile'+id).getSourceImage()
 
         const position:BlockPositon = BlockSpriteGetPosition(
             inState.c, 

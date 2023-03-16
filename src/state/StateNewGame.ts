@@ -5,5 +5,4 @@ export default (state:State, gameConfig:any):void => {
     state.shuffleCount = gameConfig.shuffleCount;
     state.steps = gameConfig.stepsToWin;
     state.point = 0;
-    state.subscribe();
 }

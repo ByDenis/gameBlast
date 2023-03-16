@@ -64,13 +64,13 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.join(__dirname, '../src/assets'),
-    //       to: "assets/[path][name][ext]",
-    //     }
-    //   ]
-    // })
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../src/assets'),
+          to: "assets/[path][name][ext]",
+        }
+      ]
+    })
   ]
 };

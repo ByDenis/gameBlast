@@ -15,9 +15,10 @@ export class PreloadScene extends Scene {
   }
 
   preload() {
-    for(let indexTile = 1; indexTile<=gameConfig.blockTypeCount; indexTile++) {
-      this.load.image('tile'+indexTile, allTile[indexTile-1])
+    for (let indexTile in gameConfig.arrGameBlockType) {
+      this.load.image('tile'+gameConfig.arrGameBlockType[indexTile], allTile[indexTile])
     }
+    
   } 
 
   create() {

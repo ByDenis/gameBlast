@@ -7,38 +7,38 @@ import State from '../state/State'
 import StateFindSolution from '../state/StateFindSolution'
 import StateNewGame from '../state/StateNewGame'
 import StateShuffleGame from '../state/StateShuffleGame'
+import { UI } from '../ui/UI'
+import clearGame from './game/clearGame'
 import onBlast from './game/onBlast'
 import onBomb from './game/onBomb'
 import setEmptyBlocks from './game/setEmptyBlocks'
 
 export class GameScene extends Scene {
+
+  public state:State
+  public createrBlock:FCreateBlock
+  private ui:UI
+
   constructor() {
     super('GameScene')
+    this.state = State.getInstance()
+    this.ui = new UI();
+
+    this.ui.showModalWindow('game-start')
   }
   
-  createrBlock:FCreateBlock
-  state = State.getInstance()
-  
   onStartGame = ():void => {
+
     StateNewGame(this.state, gameConfig);
     
     if (this.state.getGame() !== undefined) {
       this.input.off('gameobjectdown', this.onBlockClick)
-
-      for (let c=0; c<gameConfig.colomns; c++) {
-        for (let r=0; r<gameConfig.rows; r++) {
-          let block = this.state.getBlock({c, r});
-          if (block !== null) {
-            block.destroy(true);
-            this.state.clearBlock({c, r});
-          }
-        }
-      }
+      clearGame(this.state.getGame(), this.state)
     }
 
-    this.createrBlock = new FCreateBlock(//Генератор игровых блоков
+    if (this.createrBlock === undefined) this.createrBlock = new FCreateBlock(//Генератор игровых блоков
       this.state.scale, 
-      ['1','2','3','4','5']
+      gameConfig.arrGameBlockType
     )
 
     this.state.initGame(gameConfig.colomns, gameConfig.rows)
@@ -53,7 +53,7 @@ export class GameScene extends Scene {
   }
 
   create() {
-    this.initEvents();
+    this.ui.initEvents(this);
   }
 
   onBlockClick = async (_: unknown, sprite:BlockSprite )  => {
@@ -67,9 +67,9 @@ export class GameScene extends Scene {
     }
 
     if (this.state.point >= gameConfig.pointsToWin) {
-
-      console.log('win');
-
+      clearGame(this.state.getGame(), this.state).then(() => {
+        this.ui.showModalWindow('game-win')
+      })
     } else {
 
       setEmptyBlocks(this, gameConfig.colomns, gameConfig.rows)
@@ -82,24 +82,14 @@ export class GameScene extends Scene {
       }
   
       if (this.state.steps <= 0 || this.state.shuffleCount <= -1) {
-        console.log('over');
+        clearGame(this.state.getGame(), this.state).then(() => {
+          this.ui.showModalWindow('game-over')
+        })
       } else {
         this.input.on('gameobjectdown', this.onBlockClick)
       }
 
     }
-  }
-
-  onBomb = () => {
-    this.state.bombUse();
-  }
-
-  initEvents() {
-      let startBtn:HTMLElement|null = document.getElementById('start-game')
-      if (startBtn !== null ) startBtn.addEventListener("click", this.onStartGame)
-
-      let bombBtn:HTMLElement|null = document.getElementById('game-bomb')
-      if (bombBtn !== null ) bombBtn.addEventListener("click", this.onBomb)
   }
 
 }
