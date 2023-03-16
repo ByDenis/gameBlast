@@ -1,16 +1,33 @@
 <html>
 <head>
-    <title>Game</title>
+    <title>Blast game</title>
 </head>
 <body>
-    <div id="start-game">Start Game</div>
-
-    <div id="game-bomb">Use Bomb</div>
-    <div>Бомб: <span id="bomb-count"></body></div>
-   
-    <div>Осталось ходов: <span id="steps-count"></span></div>
-    <div>Очков: <span id="point-count"></span></div>
-
-    <span id="game"></span>
+<div class="wrapper">   
+    <div class="info-block">
+        <div class="game-panel">
+            <div><span>Заработано очков: </span><span id="point-count"></span></div>    
+            <div><span>Доступно ходов: </span><span id="steps-count"></span></div>
+        </div>
+        <div class="bonus">
+            <div id="game-bomb" class="button">Бомба</div>
+            <div>Доступно: <span id="bomb-count"></div>
+        </div>
+    </div>
+    <div id="game">
+        <div class="modal" id="game-start">
+            <h2>Привет, давай поиграем</h2>
+            <div id="start-game" class="button">Начать игру</div>
+        </div>
+        <div class="modal" id="game-win">
+            <h2>Поздравляю</h2>
+            <div id="start-game" class="button">Играть ещё</div>
+        </div>
+        <div class="modal" id="game-over">
+            <h2>Вы проиграли</h2>
+            <div id="start-game" class="button">Играть ещё</div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

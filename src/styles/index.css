@@ -6,15 +6,24 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
     box-sizing: border-box;
-    font-family: Marvin;
+    font-family: Marvin, sans-serif;
 }
   
 body {
     width: 100%;
     height: 100%;
     background-color: #a1a1a1;
+}
+.modal {
+    position:absolute;
+    display: none;
+    opacity: 0;
+}
+.modal.on {
+    display: block;
+    opacity: 1;
+    transition: opacity .6s;  
 }
 
 #game {
@@ -27,6 +36,7 @@ canvas {
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
 }
 
 #game {
@@ -36,17 +46,10 @@ canvas {
     box-shadow: 1px -3px 11px 3px rgba(222,225,255,0.69) inset;
 }
 
-#start-game {
+.button {
     display: inline-block;
     padding: 20px;
     border: 1px solid red;
-}
-
-#game-bomb {
-    display: inline-block;
-    padding: 20px;
-    border: 1px solid red;
-    color: red;
 }
 
 #game-bomb.on {

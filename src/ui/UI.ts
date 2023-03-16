@@ -26,7 +26,15 @@ export class UI {
     }
 
     public showModalWindow = (nameWindow:string) => {
-        console.log(nameWindow);
+        let showBlock:HTMLElement|null = document.getElementById(nameWindow)
+        if (showBlock !== null ) showBlock.classList.add("on")
+    }
+    public hideModalWindow = () => {
+        let listModalWindow:HTMLCollection|null = document.getElementsByClassName('modal')
+        let arrModalWindow:Element[] = Array.from(listModalWindow)
+        if (arrModalWindow !== null) arrModalWindow.forEach((element) => {
+            element.classList.remove('on')
+        });
     }
     
     public initEvents(scene:GameScene) {
