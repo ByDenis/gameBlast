@@ -22,8 +22,7 @@ export class BlockSprite extends GameObjects.Sprite {
         const blockTexture = scene.textures.get('tile'+id).getSourceImage()
 
         const position:BlockPositon = BlockSpriteGetPosition(
-            inState.c, 
-            inState.r,
+            inState, 
             blockTexture.width * scale,
             blockTexture.height * scale
         );

@@ -2,7 +2,7 @@ import { Scene,Utils } from "phaser"
 import { BlockId } from "../gameConfig"
 import { BlockSprite } from "../models/BlockSprite"
 
-export default class FCreateBlock {
+export default class CreateBlockFactory {
     private arrNextBlock:BlockId[] = []
     private _arrDefaultBlock:BlockId[] = []
 

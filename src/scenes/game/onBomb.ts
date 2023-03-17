@@ -2,12 +2,12 @@ import { GameScene } from "../GameScene"
 import { BlockSprite } from "../../models/BlockSprite"
 import BlockSpriteBlast from "../../models/BlockSpriteBlast"
 import BlockSpriteMoveY from '../../models/BlockSpriteMove'
-import findBombBlocks from "../../state/findBombBlocks"
+import StateFindBombBlocks from "../../state/StateFindBombBlocks"
 import moveDownBlocks from '../../state/StateMoveDownBlocks'
 
 export default (scene: GameScene, sprite: BlockSprite, bombRadius: number) => {
     return new Promise((resolve) => {
-        const blockNeedsBomb = findBombBlocks(scene.state.getGame(), sprite, bombRadius)
+        const blockNeedsBomb = StateFindBombBlocks(scene.state.getGame(), sprite, bombRadius)
 
         let allPromise: any = [];
         for (let s of blockNeedsBomb) {

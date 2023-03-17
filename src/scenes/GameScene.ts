@@ -1,5 +1,5 @@
 import { Scene } from 'phaser'
-import FCreateBlock from '../factory/FCreateBlock'
+import CreateBlockFactory from '../factory/CreateBlockFactory'
 import gameConfig from '../gameConfig'
 import { BlockSprite } from '../models/BlockSprite'
 import BlockSpriteMoveAll from '../models/BlockSpriteMoveAll'
@@ -16,7 +16,7 @@ import setEmptyBlocks from './game/setEmptyBlocks'
 export class GameScene extends Scene {
 
     public state: State
-    public createrBlock: FCreateBlock
+    public createrBlock: CreateBlockFactory
     private ui: UI
 
     constructor() {
@@ -38,7 +38,7 @@ export class GameScene extends Scene {
             clearGame(this.state.getGame(), this.state)
         }
 
-        if (this.createrBlock === undefined) this.createrBlock = new FCreateBlock(//Генератор игровых блоков
+        if (this.createrBlock === undefined) this.createrBlock = new CreateBlockFactory(//Генератор игровых блоков
             this.state.scale,
             gameConfig.arrGameBlockType
         )
