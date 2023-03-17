@@ -1,9 +1,11 @@
-export default (blocks:number):number => {
-    let result:number = blocks;
+export default (blocksLength:number):number => {
+    let points:number = blocksLength;
     
-    if (blocks>2) result+=1;
-    if (blocks>4) result+=2;
-    if (blocks>3) result+=3;
+    points += blocksLength > 2 ? 1 : 0
+    points += blocksLength > 3 ? 1 : 0
+    points += blocksLength > 4 ? 1 : 0
+    points += blocksLength > 5 ? 1 : 0
+    points += blocksLength > 6 ? 1 : 0
     
-    return result
+    return points
 }
