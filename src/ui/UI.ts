@@ -29,18 +29,21 @@ export class UI {
         let showBlock:HTMLElement|null = document.getElementById(nameWindow)
         if (showBlock !== null ) showBlock.classList.add("on")
     }
-    
+
     public hideModalWindow = () => {
         let listModalWindow:HTMLCollection|null = document.getElementsByClassName('modal')
         let arrModalWindow:Element[] = Array.from(listModalWindow)
-        if (arrModalWindow !== null) arrModalWindow.forEach((element) => {
-            element.classList.remove('on')
-        });
+            arrModalWindow.forEach((element:Element) => {
+                element.classList.remove('on')
+            });
     }
     
     public initEvents(scene:GameScene) {
-        let startBtn:HTMLElement|null = document.getElementById('start-game')
-        if (startBtn !== null ) startBtn.addEventListener("click", scene.onStartGame)
+        let startBtns:HTMLCollection|null = document.getElementsByClassName('start-game')
+        let arrStartBtns:Element[] = Array.from(startBtns)
+            arrStartBtns.forEach((element:Element) => {
+                element.addEventListener("click", scene.onStartGame );
+            });
 
         let bombBtn:HTMLElement|null = document.getElementById('game-bomb')
         if (bombBtn !== null ) bombBtn.addEventListener("click", this.state.bombUse)
