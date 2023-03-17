@@ -29,6 +29,7 @@ export class UI {
         let showBlock:HTMLElement|null = document.getElementById(nameWindow)
         if (showBlock !== null ) showBlock.classList.add("on")
     }
+    
     public hideModalWindow = () => {
         let listModalWindow:HTMLCollection|null = document.getElementsByClassName('modal')
         let arrModalWindow:Element[] = Array.from(listModalWindow)

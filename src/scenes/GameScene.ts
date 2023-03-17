@@ -69,11 +69,10 @@ export class GameScene extends Scene {
         }
 
         if (this.state.point >= gameConfig.pointsToWin) {
-            clearGame(this.state.getGame(), this.state).then(() => {
-                this.ui.showModalWindow('game-win')
-            })
+            await clearGame(this.state.getGame(), this.state)
+            
+            this.ui.showModalWindow('game-win')
         } else {
-
             setEmptyBlocks(this, gameConfig.colomns, gameConfig.rows)
 
             //Проверка есть ли решение
@@ -90,8 +89,6 @@ export class GameScene extends Scene {
             } else {
                 this.input.on('gameobjectdown', this.onBlockClick)
             }
-
         }
     }
-
 }

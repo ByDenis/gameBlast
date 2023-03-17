@@ -1,8 +1,8 @@
 import { BlockPositon, StatePositionBlock } from "./BlockSprite"
 
-export default (inState:StatePositionBlock, width:number, height:number):BlockPositon => {
+export default (inState:StatePositionBlock, widthBlock:number, heightBlock:number):BlockPositon => {
     return {
-        x: width/2 + width * inState.c,
-        y: height/2 + height * inState.r
+        x: widthBlock/2 + widthBlock * inState.c,
+        y: heightBlock/2 + heightBlock * inState.r
     }
 }
