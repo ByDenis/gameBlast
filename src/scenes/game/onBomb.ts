@@ -2,7 +2,7 @@ import { GameScene } from "../GameScene"
 import { BlockSprite } from "../../models/BlockSprite"
 import BlockSpriteBlast from "../../models/BlockSpriteBlast"
 import BlockSpriteMove from '../../models/BlockSpriteMove'
-import findBombBlocks from "../../state/StateFindBombBlocks"
+import findBombBlocks from "../../state/StateFindBombBlocksСross"
 import moveDownBlocks from '../../state/StateMoveDownBlocks'
 
 export default (scene: GameScene, sprite: BlockSprite, bombRadius: number) => {
