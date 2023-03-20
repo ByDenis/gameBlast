@@ -1,33 +1,31 @@
 <html>
 <head>
     <title>Blast game</title>
+	<link href="index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="wrapper">   
+<div class="wrapper" id="display-game" style="display: none;">   
     <div class="info-block">
         <div class="game-panel">
-            <div><span>Заработано очков: </span><span id="point-count"></span></div>    
-            <div><span>Доступно ходов: </span><span id="steps-count"></span></div>
-        </div>
-        <div class="bonus">
-            <div id="game-bomb" class="button">Бомба</div>
-            <div>Доступно: <span id="bomb-count"></div>
+			<div class="progress-bar-panel"><span>Заработано очков: <span id="point-count">0</span></span><div class="progress-bar"><div id="progress-data"></div></div></div>
+            <div class="game-inf"><div id="game-bomb" class="button-count purple"><span id="bomb-count" class="bomb-count">0</span>Бомба</div><span class="step">Xодов: <span id="steps-count">0</span></span></div>
         </div>
     </div>
     <div id="game">
-        <div class="modal" id="game-start">
+        <div class="modal on" id="game-start">
             <h2>Привет, давай поиграем</h2>
-            <div class="button start-game">Начать игру</div>
+            <div class="button-count red start-game">Начать игру</div>
         </div>
         <div class="modal" id="game-win">
             <h2>Поздравляю</h2>
-            <div class="button start-game">Играть ещё</div>
+            <div class="button-count red button start-game">Играть ещё</div>
         </div>
         <div class="modal" id="game-over">
             <h2>Вы проиграли</h2>
-            <div class="button start-game">Играть ещё</div>
+            <div class="button-count red button start-game">Играть ещё</div>
         </div>
     </div>
 </div>
+<!-- <div class="button-add"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 66"><path fill="#fff" d="M48.496,26.011h-9.5v-9.5c0-1.657-1.343-3-3-3h-6c-1.657,0-3,1.343-3,3v9.5h-9.5c-1.657,0-3,1.343-3,3v6	c0,1.657,1.343,3,3,3h9.5v9.5c0,1.657,1.343,3,3,3h6c1.657,0,3-1.343,3-3v-9.5h9.5c1.657,0,3-1.343,3-3v-6	C51.496,27.355,50.153,26.011,48.496,26.011z"/></svg></div> -->
 </body>
 </html>

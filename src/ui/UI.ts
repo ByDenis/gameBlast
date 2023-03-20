@@ -3,18 +3,22 @@ import { GameScene } from "../scenes/GameScene";
 import State from "../state/State";
 
 export class UI {
+    readonly displayGame:HTMLElement|null
     readonly bombCount:HTMLElement|null
     readonly pointCount:HTMLElement|null
     readonly stepsCount:HTMLElement|null
     readonly bombBtn:HTMLElement|null
+    readonly progressBar:HTMLElement|null
 
     private state:State
 
     constructor() {
+        this.displayGame = document.getElementById('display-game')
         this.bombCount = document.getElementById('bomb-count')
         this.pointCount = document.getElementById('point-count')
         this.stepsCount = document.getElementById('steps-count')
         this.bombBtn = document.getElementById('game-bomb')
+        this.progressBar = document.getElementById('progress-data')
     
         this.state = State.getInstance();
         this.state.subscribe( (props:any) => {
@@ -22,6 +26,11 @@ export class UI {
             if ( this.pointCount !== null ) this.pointCount.innerHTML = props.point+' / '+gameConfig.pointsToWin
             if ( this.stepsCount !== null ) this.stepsCount.innerHTML = props.steps
             if ( this.bombBtn !== null ) props.isBomb === true ? this.bombBtn.classList.add("on") : this.bombBtn.classList.remove("on")
+            
+            let progressPercent = parseInt(props.point)/gameConfig.pointsToWin * 100
+            if ( this.progressBar !== null ) this.progressBar.style.setProperty("width", `calc(${progressPercent}% - 4px)`)
+        
+            if ( this.displayGame !== null ) this.displayGame.style.display = 'flex';
         });
     }
 
