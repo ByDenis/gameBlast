@@ -22,7 +22,7 @@ canvas {margin: 0;padding: 0;width: 100%;height: 100%}
 .button-add svg path{background-image:linear-gradient(180deg,rgb(220,212,212)0%,rgb(255,255,255)100%);filter:drop-shadow(0 .1rem .1rem  rgba(85,52,7,.63))}
 .button-add:after{content:"";display:block;background:#fff;border-radius:.2rem;width:.625rem}
 
-.progress-bar-panel{display:flex;align-items:center;justify-content:center;flex-direction:column;height:8rem;width:40vw;background-image:linear-gradient(0deg,rgb(16,61,121)0%,rgb(9,33,64)100%);border-radius:0 0 1.45rem 1.45rem;box-shadow:0 .15rem .05rem 0 rgba(49,134,249,.35),inset 0 -.25rem .5rem 0 rgba(4,22,45,.5);text-align:center;font-size:1.875rem;color:#fff;text-transform:uppercase}
+.progress-bar-panel{display:flex;align-items:center;justify-content:center;flex-direction:column;height:8rem;width:40vw;background-image:linear-gradient(0deg,rgb(16,61,121)0%,rgb(9,33,64)100%);border-radius:0 0 1.45rem 1.45rem;box-shadow:0 .15rem .05rem 0 rgba(49,134,249,.35),inset 0 -.25rem .5rem 0 rgba(4,22,45,.5);text-align:center;font-size:1.5rem;color:#fff;text-transform:uppercase}
 .progress-bar-panel .progress-bar{width:92%;position:relative;height:2.76rem;background-image:linear-gradient(0deg,rgb(3,38,85)0%,rgb(0,15,36)100%);border-radius:5rem;margin-top:.2rem;overflow:hidden}
 
 .progress-bar-panel .progress-bar div#progress-data{position:absolute;border-radius:5rem;width:calc(0% - 4px);height:calc(100% - 4px);background:red;left:2px;top:2px;background-image:linear-gradient(0deg,rgb(96,255,0)1%,rgb(29,155,0)32%,rgb(162,255,0)77%,rgb(199,255,102)93%,rgb(236,255,204) 100%)}
